@@ -1,0 +1,41 @@
+
+
+header {
+    background: pink;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h5,
+h6 {
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: normal;
+    font-style: 
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 1.5em;
+    letter-spacing: -.2px;
+    text-transform: uppercase;
+    text-decoration: 
+}
+
+.hero {
+    height: 300px;
+}
+
+.project_details {
+    width: 500px;
+}
+
+.project_imageContainer {
+    width: 500px;
+}
