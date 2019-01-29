@@ -258,6 +258,7 @@ figure {
     display: block;
     background: transparent;
     color: white;
+    color: #00ff00;
     padding: 10px 0;
     border-radius: 5px;
     width: 100px;
