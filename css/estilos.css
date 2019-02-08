@@ -1,5 +1,3 @@
-
-
 body {
     font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
@@ -10,7 +8,6 @@ h2,
 h3,
 h4,
 h5,
-h5,
 h6 {
     font-family: 'Fjalla One', sans-serif;
     font-weight: normal;
@@ -18,7 +15,7 @@ h6 {
 
 h1 {
     font-size: 40px;
-    line-height: 1.5em;
+    line-height: 1.5;
     letter-spacing: -.2px;
     color: white;
     margin: 0;
@@ -35,8 +32,6 @@ h2 {
     font-weight: bold;
     font-size: 24px;
     margin-bottom: 40px;
-
-    
 }
 
 .hero {
@@ -45,11 +40,13 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.hero_image {
-object-fit: cover;
+.hero-image {
+    object-fit: cover;
 }
+
 
 .portfolio {
     background: #fafafa;
@@ -57,23 +54,24 @@ object-fit: cover;
 }
 
 .project {
-    border: 1px solid grey;
+    border: 1px solid gray;
     border-radius: 10px;
     margin-bottom: 15px;
     padding: 20px;
-    background: white;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.project_course,
-.project_date,
-.project_url {
+.project-course,
+.project-date,
+.project-url {
     margin: 10px 0;
 }
 
-.project_description {
+.project-description {
     font-size: 20px;
 }
 
@@ -81,18 +79,22 @@ object-fit: cover;
     font-family: 'Fjalla One', sans-serif;
 }
 
-.project_title {
+.project-title {
     font-size: 30px;
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-.project_details {
-    width: 500px;
+.project-details {
+    width: 50%;
 }
 
-.project_imageContainer {
-    width: 500px;
+.project-imageContainer {
+    width: 50%;
+}
+
+.project-imageContainer img {
+    max-width: 100%;
 }
 
 .header {
@@ -102,6 +104,7 @@ object-fit: cover;
     height: 70px;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 ol,
@@ -137,7 +140,21 @@ figure {
     display: flex;
     align-items: center;
     height: inherit;
-    padding: 0px 10px;
+    padding: 0 10px;
+}
+
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border: 1px solid red;
+
+    flex-shrink: 0;
 }
 
 .footer {
@@ -146,9 +163,8 @@ figure {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+    flex-wrap: wrap;
 }
-
 
 .footer img {
     vertical-align: middle;
@@ -158,124 +174,198 @@ figure {
     color: white;
 }
 
-.event_list {
+.event-list {
     display: flex;
     flex-wrap: wrap;
 }
 
-.event_list_title {
+.event-list-title {
     margin-left: 20px;
 }
 
 .event {
-    border: 1px solid red;
-    margin: 10px;
-    width: 480px;
-    border-radius: 10px;
+    margin: 1%;
+    width: 48%;
     flex-shrink: 0;
+    border-radius: 10px;
     overflow: hidden;
-    background-color: #f4fbff;
+    background: #f4fbff;
 }
 
 .event img {
     width: 480px;
     height: 200px;
     object-fit: cover;
-
-}
-
-.event_details {
+  }
+  .event-detail {
     margin: 20px 40px;
     margin-top: -40px;
     background-color: white;
     position: relative;
     padding: 20px;
     text-align: center;
-}
-
-.event_description {
+  }
+  .event-description {
     text-align: left;
-}
-
-.event_url {
+  }
+  
+  .event-url {
     color: #056fff;
     border: 1px solid;
     padding: 5px 20px;
     text-decoration: none;
     border-radius: 5px;
-}
-
-.contact {
+  }
+  
+  .contact {
     background-color: #056fff;
     color: white;
     height: 150px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.social {
-}
-
-.social_link {
+    flex-wrap: wrap;
+  }
+  
+  .social {
+  }
+  
+  .social-link {
     display: inline-block;
     width: 50px;
     height: 50px;
     margin: 0 10px;
     background-size: 50px 50px;
-}
-
-.social_link.twitter {
+  }
+  
+  .social-link.twitter {
     background-image: url('../images/twitter.svg');
-}
-
-.social_link.facebook {
+  }
+  .social-link.facebook {
     background-image: url('../images/facebook.svg');
-}
-
-.social_link.github {
+  }
+  .social-link.github {
     background-image: url('../images/github.svg');
-}
-
-.social_link.instagram {
+  }
+  .social-link.instagram {
     background-image: url('../images/instagram.svg');
-}
-
-.form_email input {
-    border-color: grey;
-    padding: 10px 20px 10px 25px;
+  }
+  
+  
+  .form-email input {
+    border-color: gray;
     border-style: solid;
     border-radius: 5px;
+    padding: 10px 20px 10px 25px;
     background-image: url('../images/envelope.svg');
     background-size: 15px 15px;
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 5px;
-    background-position-y: t
-}
-
-.form_email button {
+  }
+  
+  .form-email button {
     display: block;
     background: transparent;
     color: white;
-    color: #00ff00;
     padding: 10px 0;
     border-radius: 5px;
     width: 100px;
     margin-top: 10px;
-}
-
-.form_email h3 {
+  }
+  
+  .form-email h3 { 
     font-family: 'Source Sans Pro', sans-serif;
-}
+  }
 
-.container {
-    border: 1 solid red;
-    width: 1000px;
+  .container {
+    max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
     display: inherit;
     justify-content: inherit;
     align-items: inherit;
     height: inherit;
     flex-wrap: inherit;
-}
+  }
+
+  @media screen and( max-width: 1024px) {
+
+  }
+
+  @media screen and (max-width: 767px) {
+      .header {
+          display: block;
+          height: auto;
+      }
+      .header ol {
+          display: block;
+      }
+      .header ol li {
+          height: 50px;
+      }
+      .header a {
+          justify-content: center;
+      }
+      .header .logo {
+          text-align: center;
+      }
+
+      .project {
+          display: block;
+      }
+      .project-imageContainer {
+          width: auto;
+          text-align: center;
+      }
+      .project-details {
+          width: auto;
+          /* font-size: 16px; */
+      }
+
+      .project-course, .project-date, .project-url {
+          margin: .4em 0;
+      }
+
+      .project-title {
+        font-size: 1.5em;
+        margin-bottom: .3em;
+      }
+      .project-url {
+        font-size: 1em;
+      }
+      .project-course {
+        font-size: .7em;
+      }
+      .project-date {
+        font-size: 1em;
+      }
+      .project-description {
+        font-size: .8em;
+      }
+
+      .event {
+          width: auto;
+          flex-shrink: initial;
+      }
+      .event img {
+          width: 100%;
+      }
+  }
+
+  @media screen and (max-width: 480px) {
+    
+    .project-details {
+        width: auto;
+        font-size: 12px;
+    }
+
+    .event-detail {
+        margin: -2em .5em .5em;
+        padding: 1em;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+
+  }
