@@ -518,3 +518,25 @@ async function obtenerPersonajes() {
 }
 
 obtenerPersonajes()
+
+const cumpleañosInmutable = persona => ({
+    ...persona,
+    edad: persona.edad + 1
+})
+
+const yesika = {
+    nombre: 'Yesika',
+    apellido: 'Cortés'
+}
+
+function saludar(saludo = 'Hola') {
+    console.log(`${saludo}, mi nombre es ${this.nombre}`)
+}
+
+// const saludarASacha = saludar.bind(sacha)
+// const saludaAYesika = saludar.bind(yesika)
+
+// setTimeout(saludar.bind(sacha, 'Hola che'), 1000)
+
+// saludar.call(sacha, 'Hola, che')
+saludar.apply(sacha, ['Hola che'])
