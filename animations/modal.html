@@ -7,7 +7,6 @@
     <style>
         body {
             display: flex;
-            /*height: 100vh;*/
             align-items: center;
             justify-content: center;
             margin: 0;
@@ -62,8 +61,6 @@
             visibility: visible;
         }
         .modal {
-            /* width: 200px;
-            height: 200px; */
             width: 500px;
             background: white;
             animation: modalIn .8s forwards;
@@ -169,7 +166,7 @@
         }
 
         $overlay.addEventListener('click', function(event) {
-            if(event.srcElement.className.includes('overlay') === true) hide();
+            if(event.target.className.includes('overlay') === true) hide();
         })
 
         $hideButton.addEventListener('click', hide);
@@ -179,10 +176,6 @@
         $closer.addEventListener('click', hide);
 
         $image.addEventListener('click', (event) => {
-            if ($overlay.classList.contains('active')) { 
-                hide(); 
-                }
-
             show();
         })
 
