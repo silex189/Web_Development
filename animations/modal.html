@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Modal Animation</title>
-
     <style>
         body {
             display: flex;
-            /* height: 100vh; */
+            /*height: 100vh;*/
             align-items: center;
             justify-content: center;
             margin: 0;
@@ -33,21 +31,27 @@
         .btn.primary {
             background: #7dc800;
         }
+        .btn.btn.primary:hover {
+            background: #bde878;
+        }
         .btn.warning {
             background: #ff463b;
+        }
+        .btn.warning:hover {
+            background: #ffa59f;
         }
         .btn:active {
             transform: scale(.9);
         }
         .overlay {
-            background: rgba(0, 0, 0, .5);
+            background: rgba(0,0,0,.5);
             position: fixed;
             left: 0;
             right: 0;
             top: 0;
             bottom: 0;
             display: flex;
-            align-content: center;
+            align-items: center;
             justify-content: center;
             transition: 1.1s ease-in;
             opacity: 0;
@@ -66,8 +70,39 @@
             padding: 2em;
             border-radius: .5em;
             text-align: center;
-
+            position: relative;
         }
+
+        .closer {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transform: rotate(45deg);
+            cursor: pointer;
+        }
+        .closer .cross1,
+        .closer .cross2 {
+            background: #4e4e4e;
+            position: absolute;
+            transition: .3s;
+        }
+        .closer .cross1 {
+            width: 100%;
+            height: 5px;
+            top: calc(50% - 2.5px);
+        }
+        .closer .cross2 {
+            width: 5px;
+            height: 100%;
+            left: calc(50% - 2.5px);
+        }
+        .closer:hover .cross1,
+        .closer:hover .cross2 {
+            background-color: #ff4842;
+        }
+
         @keyframes modalIn {
             0% {
                 transform: translateY(-3000px);
@@ -99,27 +134,58 @@
     </style>
 </head>
 <body>
-    <img src="platzi.png" alt="platzi image">
+    <img id="image" src="platzi.png" alt="platzi image">
     <div class="overlay active" id="overlay">
         <div class="modal" id="modal">
+            <div class="closer" id='x'>
+                <div class="cross1"></div>
+                <div class="cross2"></div>
+            </div>
             <h1>Warning!</h1>
-            <p>You are almost going to create a cool modal window</p>
-            <p> do you like it?</p>
+            <p>This is a modal test. You can interact with it by clicking diferent places</p>
+            <p> Would you like to try it?</p>
             <div class="modal-buttons">
-                <button class="btn primary" id="hide-modal">Yes, it's awesome</button>
-                <button class="btn warning">No, :(</button>
+                <button class="btn primary" id="hide-modal">Yes, there we go!</button>
+                <button class="btn warning">No :(</button>
             </div>
         </div>
     </div>
     <script>
-        const $hideButton = document.getElementById('hide-modal');
-        const $modal = document.getElementById('modal');
         const $overlay = document.getElementById('overlay');
+        const $modal = document.getElementById('modal');
+        const $image = document.getElementById('image');
+        const $hideButton = document.getElementById('hide-modal');
+        const $warning = document.getElementsByClassName('warning');
+        const $closer = document.getElementById('x');
 
-        $hideButton.addEventListener('click', (event) => {
+        function hide() {
             $modal.style.animation = 'modalOut .8s forwards';
             $overlay.classList.remove('active');
+        }
+
+        function show() {
+            $modal.style.animation = 'modalIn .8s forwards';
+            $overlay.classList.add('active');
+        }
+
+        $overlay.addEventListener('click', function(event) {
+            if(event.srcElement.className.includes('overlay') === true) hide();
         })
+
+        $hideButton.addEventListener('click', hide);
+
+        $warning[0].addEventListener('click', hide);
+
+        $closer.addEventListener('click', hide);
+
+        $image.addEventListener('click', (event) => {
+            if ($overlay.classList.contains('active')) { 
+                hide(); 
+                }
+
+            show();
+        })
+
     </script>
 </body>
 </html>
